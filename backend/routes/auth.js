@@ -4,16 +4,17 @@ const User = require('../models/User');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fetchuser = require('../middleware/fetchuser');
 
-const JWT_SECRET = 'Kingisagoodb$oy'
+const JWT_SECRET = 'Kingisagoodb$oy';
 
-// Creating a user using : POST "/api/auth/createuser" . No login required
+//ROUTE 1: Creating a user using : POST "/api/auth/createuser" . No login required
 router.post('/createuser',[
     body('name','Enter a valid name').isLength({min: 3}),
     body('email','Enter a valid email').isEmail(),
     body('password','Password length should be atleast 5').isLength({min: 5}),
     ] ,async (req,res)=>{
-// If there are errors return bad request and the error
+    // If there are errors return bad request and the error
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({errors : errors.array()});
@@ -34,12 +35,15 @@ router.post('/createuser',[
             email: req.body.email,
         });
 
-        const data = {
-            user:{
-                id: user.id
-            }
-        }
-        const authtoken = jwt.sign(data,JWT_SECRET);
+        // const data = {
+        //     user:{
+        //         id: user._id
+        //     }
+        // }
+        // const authtoken = jwt.sign(data,JWT_SECRET);
+        const authtoken = jwt.sign({
+            id: user._id
+          }, JWT_SECRET, { expiresIn: '2h' });
         res.json({authtoken});
 
     } catch(error){
@@ -49,13 +53,13 @@ router.post('/createuser',[
 })
 
 
-// Authenticate a user using : POST "/api/auth/login" . No login required
+//ROUTE 2: Authenticate a user using : POST "/api/auth/login" . No login required
 router.post('/login',[
     body('email','Enter a valid email').isEmail(),
     body('password','Password cannot be blank').exists(),
     ] ,async (req,res)=>{
 
-// If there are errors return bad request and the error
+    // If there are errors return bad request and the error
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({errors : errors.array()});
@@ -73,12 +77,15 @@ router.post('/login',[
             return res.status(400).json({error: "Please enter valid credentials"});
         } 
 
-        const data = {
-            user:{
-                id: user.id
-            }
-        }
-        const authtoken = jwt.sign(data,JWT_SECRET);
+        // const data = {
+        //     user:{
+        //         id: user._id
+        //     }
+        // }
+        // const authtoken = jwt.sign(data,JWT_SECRET);
+        const authtoken = jwt.sign({
+            id: user._id
+          }, JWT_SECRET, { expiresIn: '2h' });
         res.json({authtoken});
 
     } catch(error){
@@ -87,4 +94,21 @@ router.post('/login',[
     }
 
 })
+
+
+//ROUTE 3: Get loggedin user details using : POST "/api/auth/getuser" . Login required
+router.post('/getuser',fetchuser,async (req,res)=>{
+    try {   
+        const userId = req.user.id;
+        // console.log(userId);
+        const user = await User.findById(userId).select("-password");
+        res.json({user});
+    } catch(error){
+        console.error(error.message);
+        return res.status(500).send("Internal Server error occured");
+    }
+})
+
+
+
 module.exports = router;
