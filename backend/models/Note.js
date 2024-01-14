@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
+  //just like foreign key so that person can see only his her notes in app
+  user:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
+  },
   title:{
     type: String,
     required: true
