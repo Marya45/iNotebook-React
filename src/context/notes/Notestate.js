@@ -17,7 +17,7 @@ const NoteState = (props)=>{
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjAxNzE0MCwiZXhwIjoxNzA2MDI0MzQwfQ._UnQGazxOvf_Agbs5OCsQ8h_smP54POKH7nH3a752Ik"
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjA5ODkwOCwiZXhwIjoxNzA2MTA2MTA4fQ.Noov5CYEV9yu9XF6YH4Keah439cnjYtHX05qBk9UFCE"
         },
       });
       const json = await response.json();
@@ -32,7 +32,7 @@ const NoteState = (props)=>{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjAxNzE0MCwiZXhwIjoxNzA2MDI0MzQwfQ._UnQGazxOvf_Agbs5OCsQ8h_smP54POKH7nH3a752Ik"
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjA5ODkwOCwiZXhwIjoxNzA2MTA2MTA4fQ.Noov5CYEV9yu9XF6YH4Keah439cnjYtHX05qBk9UFCE"
         },
         body: JSON.stringify({title,description,tag}), 
       });
@@ -53,8 +53,16 @@ const NoteState = (props)=>{
     }
     
     // Delete a note
-    const deleteNote = (id)=>{
+    const deleteNote = async (id)=>{
       // API CALL
+      const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjA5ODkwOCwiZXhwIjoxNzA2MTA2MTA4fQ.Noov5CYEV9yu9XF6YH4Keah439cnjYtHX05qBk9UFCE"
+        },
+      });
+      const json = await response.json();
       console.log("Deleting node with id "+id);
 
       const newNotes = notes.filter((note)=>{return note._id!==id});
@@ -68,7 +76,7 @@ const NoteState = (props)=>{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjAxNzE0MCwiZXhwIjoxNzA2MDI0MzQwfQ._UnQGazxOvf_Agbs5OCsQ8h_smP54POKH7nH3a752Ik"
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjA5ODkwOCwiZXhwIjoxNzA2MTA2MTA4fQ.Noov5CYEV9yu9XF6YH4Keah439cnjYtHX05qBk9UFCE"
         },
         body: JSON.stringify({title,description,tag}), 
       });
