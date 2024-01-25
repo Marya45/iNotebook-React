@@ -17,7 +17,7 @@ const NoteState = (props)=>{
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjExODA4MSwiZXhwIjoxNzA2MTI1MjgxfQ.QnxE8qP7ZWP_TrVI2cQhQWt_wTT-GPiVr2Z3rmOjDUI"
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjIwMzgwOCwiZXhwIjoxNzA2MjExMDA4fQ.1BiUDLFIFxNHjlayXqWz0ZmoD7M1OPtkgnLLTyfDd88"
         },
       });
       const json = await response.json();
@@ -32,7 +32,7 @@ const NoteState = (props)=>{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjExODA4MSwiZXhwIjoxNzA2MTI1MjgxfQ.QnxE8qP7ZWP_TrVI2cQhQWt_wTT-GPiVr2Z3rmOjDUI"
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjIwMzgwOCwiZXhwIjoxNzA2MjExMDA4fQ.1BiUDLFIFxNHjlayXqWz0ZmoD7M1OPtkgnLLTyfDd88"
         },
         body: JSON.stringify({title,description,tag}), 
       });
@@ -48,7 +48,7 @@ const NoteState = (props)=>{
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjExODA4MSwiZXhwIjoxNzA2MTI1MjgxfQ.QnxE8qP7ZWP_TrVI2cQhQWt_wTT-GPiVr2Z3rmOjDUI"
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjIwMzgwOCwiZXhwIjoxNzA2MjExMDA4fQ.1BiUDLFIFxNHjlayXqWz0ZmoD7M1OPtkgnLLTyfDd88"
         },
       });
       const json = await response.json();
@@ -66,7 +66,7 @@ const NoteState = (props)=>{
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjExODA4MSwiZXhwIjoxNzA2MTI1MjgxfQ.QnxE8qP7ZWP_TrVI2cQhQWt_wTT-GPiVr2Z3rmOjDUI"
+          "auth-token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTJjZWRiZWEwYWUyYzY3ZjZkM2M5ZSIsImlhdCI6MTcwNjIwMzgwOCwiZXhwIjoxNzA2MjExMDA4fQ.1BiUDLFIFxNHjlayXqWz0ZmoD7M1OPtkgnLLTyfDd88"
         },
         body: JSON.stringify({title,description,tag}), 
       });
