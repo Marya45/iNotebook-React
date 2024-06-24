@@ -51,7 +51,7 @@ router.post('/createuser',[
         res.json({success,authtoken});
 
     } catch(error){
-        console.error(error.message);
+        // console.error(error.message);
         res.status(500).send("Internal Server error occured");
     }
 })
@@ -98,7 +98,7 @@ router.post('/login',[
         res.json({success,authtoken});
 
     } catch(error){
-        console.error(error.message);
+        // console.error(error.message);
         return res.status(500).send("Internal Server error occured");
     }
 
@@ -113,7 +113,7 @@ router.post('/getuser',fetchuser,async (req,res)=>{
         const user = await User.findById(userId).select("-password");
         res.json({user});
     } catch(error){
-        console.error(error.message);
+        // console.error(error.message);
         return res.status(500).send("Internal Server error occured");
     }
 })

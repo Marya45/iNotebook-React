@@ -21,7 +21,7 @@ const NoteState = (props)=>{
         },
       });
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       setNotes(json);
     }
 
@@ -38,7 +38,7 @@ const NoteState = (props)=>{
       });
       const note = await response.json();
       setNotes(notes.concat(note)); //concat return an array while push updates an array
-      console.log("Adding a new note");
+      // console.log("Adding a new note");
     }
     
     // Delete a note
@@ -51,9 +51,10 @@ const NoteState = (props)=>{
           "auth-token" : localStorage.getItem('token')
         },
       });
+      // eslint-disable-next-line
       const json = await response.json();
-      console.log(json);
-      console.log("Deleting node with id "+id);
+      // console.log(json);
+      // console.log("Deleting node with id "+id);
 
       const newNotes = notes.filter((note)=>{return note._id!==id});
       setNotes(newNotes);
@@ -70,8 +71,9 @@ const NoteState = (props)=>{
         },
         body: JSON.stringify({title,description,tag})
       });
+      // eslint-disable-next-line
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
 
       let newNotes = JSON.parse(JSON.stringify(notes));
       //Logic to edit in client

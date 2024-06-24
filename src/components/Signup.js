@@ -22,7 +22,7 @@ const Signup = (props) => {
             body: JSON.stringify({name,email,password}), 
           });
           const json = await response.json();
-          console.log(json);
+          // console.log(json);
           if(json.success){
             //redirect
             localStorage.setItem('token',json.authtoken)

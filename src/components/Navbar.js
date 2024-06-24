@@ -14,7 +14,7 @@ const Navbar = () => {
     // console.log(location.pathname);
   }, [location]);
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-light"  /*style={{backgroundColor: "#e3f2fd",opacity:"70%"}}*/ >
         <div className="container-fluid">
             <Link className="navbar-brand" to="/">iNotebook</Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,9 +30,9 @@ const Navbar = () => {
                 </li>
             </ul>
             {!localStorage.getItem('token')? <form className="d-flex" role="search">
-                <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-                <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-            </form> : <button onClick={handleLogout} className="btn btn-primary">Logout</button> }
+                <Link className="btn btn- mx-1" to="/login" role="button">Login</Link>
+                <Link className="btn btn- mx-1" to="/signup" role="button">Signup</Link>
+            </form> : <button onClick={handleLogout} className="btn btn-">Logout</button> }
             </div>
         </div>
     </nav>

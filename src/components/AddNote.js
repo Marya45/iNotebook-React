@@ -36,7 +36,7 @@ const AddNote = (props) => {
             name="title"
             aria-describedby="emailHelp"
             onChange={onChange}
-            minLength={5}
+            minLength={2}
             required
             value={note.title}
           />
@@ -72,7 +72,7 @@ const AddNote = (props) => {
           />
         </div>
         
-        <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleClick}>
+        <button disabled={note.title.length<2 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleClick}>
           Add Note
         </button>
       </form>

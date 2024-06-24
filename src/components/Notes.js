@@ -31,7 +31,7 @@ const Notes = (props) => {
   };
   
   const handleClick = (e) => {
-    console.log("Updating the note",note)
+    // console.log("Updating the note",note)
     editNote(note.id,note.etitle,note.edescription,note.etag);
     refClose.current.click();
     props.showAlert("Updated Successfully","success");
@@ -92,7 +92,7 @@ const Notes = (props) => {
                     aria-describedby="emailHelp"
                     value={note.etitle}
                     onChange={onChange}
-                    minLength={5}
+                    minLength={2}
                     required
                   />
                 </div>
@@ -135,7 +135,7 @@ const Notes = (props) => {
               >
                 Close
               </button>
-              <button disabled={note.etitle.length<5 || note.edescription.length<5} onClick={handleClick} type="button" className="btn btn-primary">
+              <button disabled={note.etitle.length<2 || note.edescription.length<5} onClick={handleClick} type="button" className="btn btn-primary">
                 Update Note
               </button>
             </div>
