@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-const mongoURI = "mongodb://127.0.0.1:27017/inotebook?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1";
+require("dotenv").config();
+const mongoURI = process.env.REACT_APP_MONGO_URL
 
 const connectToMongo = async () => {
     mongoose.connect(mongoURI).then(()=>console.log("Connected to Mongo successfully")).catch((e)=>console.log(e.message))
