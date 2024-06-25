@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   
-  const host = "http://localhost:5000"; 
+  // const host = "http://localhost:5000"; 
+  const host = "https://inotebook-zie0.onrender.com"; 
 
     let navigate = useNavigate();
 

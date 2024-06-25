@@ -4,7 +4,8 @@ import NoteContext from './noteContext';
 //it will provide all state of note
 const NoteState = (props)=>{
 
-    const host = "http://localhost:5000"; 
+    // const host = "http://localhost:5000"; 
+    const host = "https://inotebook-zie0.onrender.com"; 
 
     const notesInitial = []
 
